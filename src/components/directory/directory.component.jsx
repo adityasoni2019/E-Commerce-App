@@ -10,7 +10,7 @@ import './directory.styles.css'
 class Directory extends Component{
     constructor(){
         // this is where everything's going to happen. 
-        super(); 
+        super();
 
         this.state = {
             // sections = [...]
@@ -64,7 +64,7 @@ class Directory extends Component{
                     ))
                 }
             </div>
-        )   
+        )
 
     }
 }
