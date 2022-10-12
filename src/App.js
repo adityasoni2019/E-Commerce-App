@@ -14,9 +14,10 @@ const HatsPage = () =>(
 function App() {
   return (
     <div className="App">
-      {/* <Route path = '/' component= {HomePage}/>
-      <Route path = '/hats' component= {HatsPage}/> */}
-      <Route path="/user" component={HomePage}/>
+      {/* <Route path = '/' component= {HomePage}/> */}
+      {/* <Route path = '/hats' component= {HatsPage}/> */}
+      {/* <Route path="/user" component={HomePage}/> */}
+      <HomePage/>
     </div>
   );
 }
