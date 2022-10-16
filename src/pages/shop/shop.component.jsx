@@ -2,7 +2,7 @@ import React , {Component} from "react";
 
 import SHOP_DATA from "./shop.data.js";
 
-import CollectionPreview from '../../components/preivew-collection/collection-preview.component';
+import CollectionPreview from '../../components/collection-preview/collection-preview.component';
 
 class ShopPage extends React.Component{
     constructor(props){
@@ -14,20 +14,29 @@ class ShopPage extends React.Component{
     }
     
     render() {
-
+        const {collections} = this.state; 
+        // Alternatively, instead of doing this while thign, writing this.state.collections in the below lines, could also have worked.
         return (
         <div className="shop-page">
-
             {
-                this.state.collections.map(({id, title, items, routeName }) => (
-                    <CollectionPreview  key = {id} routeName  = {routeName} title = {title} items= {items}/>
-                ))
+                collections.map(({id, ...everythinElse}) => (
+                    <CollectionPreview  key = {id} {...everythinElse}/>
+                // ...everythingElse has - 
+                
+                // (parameter) everythinElse: {
+                //     title: string;
+                //     routeName: string;
+                //     items: {}[];
+                // }
+
+
+                    ))
             }
 
             <div > hello</div>
                 
-        </div>)
-    }
+        </div>
+    )}
 
 }
 

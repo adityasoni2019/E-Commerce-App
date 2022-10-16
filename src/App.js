@@ -2,7 +2,7 @@
 import React , {Component} from "react";
 import ReactDOM from "react-dom/client";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
-import CollectionPreview from "./components/preivew-collection/collection-preview.component";
+import CollectionPreview from "./components/collection-preview/collection-preview.component";
 
 import HomePage from "./pages/homepage/homepage.component";
 

@@ -2,6 +2,8 @@
 import React , {Component} from "react";
 import './collection-preview.styles.css'
 
+import CollectionItem from "../collection-item/collection-item.component";
+
 const CollectionPreview = ({title, items}) =>(
 
     // remember, these things ^ are the props, which are passed in terms of js. 
@@ -14,10 +16,10 @@ const CollectionPreview = ({title, items}) =>(
             
             {items
                 .filter( (item, idx) => idx<4)
-                .map(item => (
+                .map(({id,name_text_value , ...everythingElse}) => (
                     // and this basically means that we're just returning a div. 
-                    <div key = {item.id}> {item.name} </div>
-                    ))}
+                    <CollectionItem key = {id} name_text_value = {name_text_value} {...everythingElse} />
+            ))}
 
         </div>
 
