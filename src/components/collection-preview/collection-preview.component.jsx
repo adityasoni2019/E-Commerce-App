@@ -1,3 +1,5 @@
+// This is going to the shop page. 
+// to be exact , here  - \E-Commerce-App\src\pages\shop\Shop.component.jsx
 
 import React , {Component} from "react";
 import './collection-preview.styles.css'
@@ -7,7 +9,7 @@ import CollectionItem from "../collection-item/collection-item.component";
 const CollectionPreview = ({title, items}) =>(
 
     // remember, these things ^ are the props, which are passed in terms of js. 
-    <div className="collection-preivew">
+    <div className="collection-preview">
 
         {/* Aight, so this is basically the thing which would be displayed under the main section  */}
         <h1 className="title">{title.toUpperCase()}</h1>

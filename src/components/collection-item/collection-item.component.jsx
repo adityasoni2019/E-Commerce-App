@@ -4,7 +4,7 @@ import "./collection-item.styles.css"
 
 // this component, is the main thing. like, this is the box which has everything (like images, price tag, button, and the prodduct name in it)
 
-const CollectionItem = ( {id, price, imageUrl, name_text_value}  ) => (
+const CollectionItem = ({id, price, imageUrl, name_text_value}) => (
 
     <div className="collection-item">
 

@@ -22,18 +22,15 @@ class ShopPage extends React.Component{
                 collections.map(({id, ...everythinElse}) => (
                     <CollectionPreview  key = {id} {...everythinElse}/>
                 // ...everythingElse has - 
-                
                 // (parameter) everythinElse: {
                 //     title: string;
                 //     routeName: string;
                 //     items: {}[];
                 // }
-
-
-                    ))
+                ))
             }
 
-            <div > hello</div>
+            {/* <div > hello</div> */}
                 
         </div>
     )}
