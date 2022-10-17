@@ -1,11 +1,10 @@
-/* below was the collection-item.styles.css */
-
 .collection-item {
     width: 22%;
     display: flex;
     flex-direction: column;
     height: 350px;
     align-items: center;
+    border: 2px solid red;
 }
 
 .collection-item .image {
@@ -22,7 +21,7 @@
     display: flex;
     justify-content: space-between;
     font-size: 18px;
-} 
+}
 
 .collection-item .collection-footer .name {
     width: 90%;
