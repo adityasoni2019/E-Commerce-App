@@ -53,13 +53,14 @@ class SignIn extends React.Component{
                     required
                     />
 
-                    <CustomButton type = 'submit' > Sign In</CustomButton>
-                    <CustomButton onClick= {signInWithGoogle}> 
-                        {' '}
-                        Sign in with Google {' '}
-                        {/* I don't know what's the use of these {' '}; tho, I think it's just to add space, 
-                        but still... */}
-                    </CustomButton>
+                    <div className="buttons">
+                        <CustomButton type = 'submit' > Sign In</CustomButton>
+                        <CustomButton onClick= {signInWithGoogle} isGoogleSignIn>
+                            Sign in with Google 
+                            {/* I don't know what's the use of these {' '}; tho, I think it's just to add space, 
+                            but still... */}
+                        </CustomButton>
+                    </div>
                 </form>
 
             </div>
