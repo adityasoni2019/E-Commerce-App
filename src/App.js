@@ -1,7 +1,7 @@
 import './App.css'
 import React, { Component } from "react";
 import ReactDOM from "react-dom/client";
-import { Routes, Route, Outlet, Link } from "react-router-dom";
+import { Routes, Route, Outlet, Link, createPath } from "react-router-dom";
 import CollectionPreview from "./components/collection-preview/collection-preview.component";
 
 // I think, auth has a lot of fundamental firebase functions inside it. i'll have to look furthere into it. 
@@ -11,6 +11,7 @@ import SignInAndSignUp from './pages/sign-in-and-sign-up/sign-in-and-sign-up.com
 import Header from './components/header/header-component';
 
 import ShopPage from "./pages/shop/Shop.component";
+import { onSnapshot } from 'firebase/firestore';
 
 class App extends React.Component {
 
@@ -30,10 +31,28 @@ class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount(){
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (user) => {
-      createUserProfileDocument(user);
-      // console.log(user);
-    })
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      
+      if(userAuth){
+        const userRef = await createUserProfileDocument(userAuth);
+
+        userRef.onSnapshot(snapShot => {
+          this.setState(
+            {
+              currentUser: {
+                id: snapShot.id, 
+                ...snapShot.data()
+              }
+            },
+            () =>{
+              console.log(this.state);
+            }
+          );
+        });
+      }
+      
+      this.setState({currentUser: userAuth});
+    });
   }
 
   componentWillUnmount(){
