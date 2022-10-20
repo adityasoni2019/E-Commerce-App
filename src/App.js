@@ -3,7 +3,9 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom/client";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import CollectionPreview from "./components/collection-preview/collection-preview.component";
-import { auth } from './firebase/firebase.utils'
+
+// I think, auth has a lot of fundamental firebase functions inside it. i'll have to look furthere into it. 
+import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 import HomePage from "./pages/homepage/homepage.component";
 import SignInAndSignUp from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import Header from './components/header/header-component';
@@ -22,12 +24,15 @@ class App extends React.Component {
 
   }
 
+
+  // don't understand this part. :/
+
   unsubscribeFromAuth = null;
 
   componentDidMount(){
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({currentUser: user});
-      console.log(user);
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (user) => {
+      createUserProfileDocument(user);
+      // console.log(user);
     })
   }
 
