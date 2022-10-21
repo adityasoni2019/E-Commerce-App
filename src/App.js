@@ -25,17 +25,17 @@ class App extends React.Component {
 
   }
 
-
   // don't understand this part. :/
 
   unsubscribeFromAuth = null;
 
   componentDidMount(){
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      
+      console.log("this is user auth: ", userAuth);
       if(userAuth){
+        // if user is signed in
         const userRef = await createUserProfileDocument(userAuth);
-
+        console.log('this is userRef', userRef);
         userRef.onSnapshot(snapShot => {
           this.setState(
             {
